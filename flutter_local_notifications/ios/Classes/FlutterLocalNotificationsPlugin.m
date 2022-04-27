@@ -837,6 +837,7 @@ static FlutterError *getFlutterError(NSError *error) {
                                            trigger:trigger];
   UNUserNotificationCenter *center =
       [UNUserNotificationCenter currentNotificationCenter];
+  center.delegate = self;
   [center addNotificationRequest:notificationRequest
            withCompletionHandler:^(NSError *_Nullable error) {
              if (error == nil) {
